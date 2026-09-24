@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prime Story - moda autoral em Aracaju" />
+  <title>Prime Story | Moda para viver sua história</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/views/main.css" />
+</head>
+<body>
+  <div class="announcement">ENTREGA LOCAL EM ARACAJU EM ATÉ 24H <span>·</span> FRETE GRÁTIS A PARTIR DE R$ 199</div>
+  <header class="site-header">
+    <button class="icon-button mobile-menu" aria-label="Abrir menu">☰</button>
+    <a class="brand" href="#top">prime <em>story</em></a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="pages/novidades.html">Novidades</a><a href="pages/feminino.html">Feminino</a><a href="pages/masculino.html">Masculino</a><a href="pages/acessorios.html">Acessórios</a>
+    </nav>
+    <div class="header-actions"><div class="search-field"><input id="globalSearch" type="search" placeholder="Buscar peça" aria-label="Buscar peça" /></div><button class="text-button" id="adminToggle">Admin</button><button class="icon-button" id="searchToggle" aria-label="Buscar">⌕</button><button class="icon-button cart-button" id="cartToggle" aria-label="Abrir carrinho">🛒 <span class="cart-count">0</span></button></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">Coleção 02.26 · Aracaju, SE</p><h1>Vista a sua<br><i>próxima história.</i></h1><p class="hero-text">Peças que acompanham o ritmo dos seus dias e ficam para os seus melhores momentos.</p><a class="button button-dark" href="#catalogo">Explorar coleção <span>↗</span></a></div>
+      <div class="hero-image"><img data-instagram-slot="0" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=85" alt="Mulher em look de moda contemporânea" /><div class="hero-stamp">new<br><strong>season</strong></div></div>
+    </section>
+
+    <section class="category-strip" id="novidades"><div><span class="category-number">01</span><h2>O novo<br><i>essencial.</i></h2></div><a class="arrow-link" href="#catalogo">Ver tudo <span>→</span></a></section>
+    <section class="category-grid"><a class="category-card tall" href="pages/feminino.html"><img data-instagram-slot="1" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="Coleção feminina" /><span>Feminino <b>↗</b></span></a><a class="category-card" href="pages/masculino.html"><img data-instagram-slot="2" src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=85" alt="Coleção masculina" /><span>Masculino <b>↗</b></span></a><a class="category-card" href="pages/acessorios.html"><img data-instagram-slot="3" src="https://images.unsplash.com/photo-1612902456551-333ac5afa26e?auto=format&fit=crop&w=900&q=85" alt="Acessórios" /><span>Acessórios <b>↗</b></span></a></section>
+
+    <section class="catalog-section" id="catalogo"><div class="section-heading"><div><p class="eyebrow">Curadoria Prime</p><h2>Escolhas da <i>semana</i></h2></div><div class="catalog-tools"><button class="filter-button active" data-filter="Todos">Todos</button><button class="filter-button" data-filter="Feminino">Feminino</button><button class="filter-button" data-filter="Masculino">Masculino</button><button class="filter-button" data-filter="Acessórios">Acessórios</button><select id="sortSelect" aria-label="Ordenar produtos"><option value="featured">Em destaque</option><option value="low">Menor preço</option><option value="high">Maior preço</option></select></div></div><div class="product-grid" id="productGrid"></div></section>
+
+    <section class="editorial-banner"><div><p class="eyebrow">Prime na vida real</p><h2>Seu estilo,<br><i>do seu jeito.</i></h2><a class="button button-light" href="https://instagram.com/_primestory" target="_blank">@_primestory <span>↗</span></a></div><img data-instagram-slot="4" src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1400&q=85" alt="Editorial de moda Prime Story" /></section>
+    <section class="instagram-section"><p class="eyebrow">@_primestory</p><h2>Vem viver com a gente.</h2><div class="insta-grid"><img data-instagram-slot="5" src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=500&q=80" alt="Look Prime Story" /><img data-instagram-slot="6" src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=500&q=80" alt="Look Prime Story" /><img data-instagram-slot="7" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80" alt="Look Prime Story" /><img data-instagram-slot="8" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=500&q=80" alt="Look Prime Story" /></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-brand"><a class="brand" href="#top">prime <em>story</em></a><p>Moda para viver sua história.<br>Aracaju, Sergipe.</p></div><div><h4>Explore</h4><a href="#catalogo">Novidades</a><a href="#catalogo">Feminino</a><a href="#catalogo">Masculino</a></div><div><h4>Ajuda</h4><a href="#">Trocas e devoluções</a><a href="#">Envio e retirada</a><a href="#">Fale conosco</a></div><div><h4>Receba novidades</h4><p class="footer-note">Cadastre seu e-mail para acompanhar as próximas histórias.</p><form class="newsletter"><input type="email" placeholder="seu melhor e-mail" aria-label="E-mail" /><button aria-label="Cadastrar e-mail">→</button></form></div><div class="footer-bottom">© 2026 Prime Story <span>Feito em Aracaju com intenção.</span></div></footer>
+
+  <div class="overlay" id="overlay"></div><aside class="cart-drawer" id="cartDrawer"><div class="drawer-header"><div><p class="eyebrow">Sua seleção</p><h2>Meu carrinho <span class="cart-count">0</span></h2></div><button class="close-button" id="closeCart">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-footer"><div class="coupon-row"><input id="couponInput" placeholder="Cupom de desconto" aria-label="Cupom de desconto"><button id="couponButton">Aplicar</button></div><p class="coupon-feedback" id="couponFeedback"></p><div class="total-line"><span>Subtotal</span><strong id="cartTotal">R$ 0,00</strong></div><p class="shipping-note">Frete calculado no checkout · retirada grátis em Aracaju</p><button class="button button-dark full" id="checkoutButton">Continuar para checkout <span>→</span></button></div></aside>
+
+  <div class="modal" id="productModal"><button class="close-button modal-close">×</button><div id="productDetail"></div></div>
+  <div class="modal checkout-modal" id="checkoutModal"><button class="close-button modal-close">×</button><div class="checkout-head"><p class="eyebrow">Finalize com calma</p><h2>Seu pedido <i>Prime</i></h2><div class="steps"><span class="step active">01 Identificação</span><span class="step">02 Entrega</span><span class="step">03 Pagamento</span><span class="step">04 Revisão</span></div></div><div id="checkoutBody"></div></div>
+  <div class="admin-panel" id="adminPanel"><div class="admin-header"><div><p class="eyebrow">Área restrita</p><h2>Prime <i>backstage</i></h2></div><button class="close-button" id="closeAdmin">×</button></div><div class="admin-tabs"><button class="admin-tab active">Visão geral</button><button class="admin-tab">Produtos</button><button class="admin-tab">Pedidos</button></div><div class="stats"><div><span>Vendas no mês</span><strong>R$ 18.490</strong><small>+12,8% vs. mês anterior</small></div><div><span>Pedidos pendentes</span><strong>08</strong><small>3 aguardando pagamento</small></div><div><span>Ticket médio</span><strong>R$ 286</strong><small>+4,2% este mês</small></div></div><div class="admin-extra"><div><span>Conversão</span><strong>4,8%</strong><div class="meter"><i style="width:72%"></i></div></div><div><span>Estoque crítico</span><strong>06 SKUs</strong><div class="meter warning"><i style="width:34%"></i></div></div><div><span>Cupons ativos</span><strong>03</strong><div class="audit-note">Última alteração há 2h</div></div></div><div class="admin-list"><div class="list-title"><h3>Pedidos recentes</h3><a href="#">Ver todos →</a></div><div class="order-row"><span class="order-avatar">MS</span><div><strong>#PS-2048 · Maria S.</strong><small>2 itens · há 12 min</small></div><b class="status preparing">Em preparação</b><strong>R$ 389,00</strong></div><div class="order-row"><span class="order-avatar beige">LA</span><div><strong>#PS-2047 · Lucas A.</strong><small>1 item · há 38 min</small></div><b class="status paid">Pago</b><strong>R$ 219,00</strong></div><div class="order-row"><span class="order-avatar green">AP</span><div><strong>#PS-2046 · Ana P.</strong><small>3 itens · há 1h</small></div><b class="status shipped">Enviado</b><strong>R$ 527,00</strong></div></div><div class="audit-log"><div class="list-title"><h3>Auditoria recente</h3><span class="audit-live">● ao vivo</span></div><p><b>Camila ·</b> ajustou o estoque de Vestido Aurora <time>há 18 min</time></p><p><b>Rafael ·</b> ativou o cupom PRIME10 <time>há 2h</time></p></div></div>
+  <script src="src/models/catalog-model.js"></script>
+  <script src="src/models/order-model.js"></script>
+  <script src="src/services/storage-service.js"></script>
+  <script src="src/services/commerce-service.js"></script>
+  <script src="src/services/instagram-assets.js"></script>
+  <script src="src/views/catalog-view.js"></script>
+  <script src="src/views/admin-view.js"></script>
+  <script src="src/controllers/store-controller.js"></script>
+  <script src="src/controllers/admin-controller.js"></script>
+  <script src="src/controllers/app-controller.js"></script>
+  <script src="src/controllers/bootstrap-controller.js"></script>
+</body>
+</html>

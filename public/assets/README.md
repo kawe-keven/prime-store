@@ -1,0 +1,1 @@
+Assets locais da Prime Story: fotos otimizadas, ícones, divisores SVG e favicon entram nesta pasta quando a conexão com CDN for substituída por Cloudinary/S3.
