@@ -43,16 +43,15 @@
   <div class="modal" id="productModal"><button class="close-button modal-close">×</button><div id="productDetail"></div></div>
   <div class="modal checkout-modal" id="checkoutModal"><button class="close-button modal-close">×</button><div class="checkout-head"><p class="eyebrow">Finalize com calma</p><h2>Seu pedido <i>Prime</i></h2><div class="steps"><span class="step active">01 Identificação</span><span class="step">02 Entrega</span><span class="step">03 Pagamento</span><span class="step">04 Revisão</span></div></div><div id="checkoutBody"></div></div>
   <div class="admin-panel" id="adminPanel"><div class="admin-header"><div><p class="eyebrow">Área restrita</p><h2>Prime <i>backstage</i></h2></div><button class="close-button" id="closeAdmin">×</button></div><div class="admin-tabs"><button class="admin-tab active">Visão geral</button><button class="admin-tab">Produtos</button><button class="admin-tab">Pedidos</button></div><div class="stats"><div><span>Vendas no mês</span><strong>R$ 18.490</strong><small>+12,8% vs. mês anterior</small></div><div><span>Pedidos pendentes</span><strong>08</strong><small>3 aguardando pagamento</small></div><div><span>Ticket médio</span><strong>R$ 286</strong><small>+4,2% este mês</small></div></div><div class="admin-extra"><div><span>Conversão</span><strong>4,8%</strong><div class="meter"><i style="width:72%"></i></div></div><div><span>Estoque crítico</span><strong>06 SKUs</strong><div class="meter warning"><i style="width:34%"></i></div></div><div><span>Cupons ativos</span><strong>03</strong><div class="audit-note">Última alteração há 2h</div></div></div><div class="admin-list"><div class="list-title"><h3>Pedidos recentes</h3><a href="#">Ver todos →</a></div><div class="order-row"><span class="order-avatar">MS</span><div><strong>#PS-2048 · Maria S.</strong><small>2 itens · há 12 min</small></div><b class="status preparing">Em preparação</b><strong>R$ 389,00</strong></div><div class="order-row"><span class="order-avatar beige">LA</span><div><strong>#PS-2047 · Lucas A.</strong><small>1 item · há 38 min</small></div><b class="status paid">Pago</b><strong>R$ 219,00</strong></div><div class="order-row"><span class="order-avatar green">AP</span><div><strong>#PS-2046 · Ana P.</strong><small>3 itens · há 1h</small></div><b class="status shipped">Enviado</b><strong>R$ 527,00</strong></div></div><div class="audit-log"><div class="list-title"><h3>Auditoria recente</h3><span class="audit-live">● ao vivo</span></div><p><b>Camila ·</b> ajustou o estoque de Vestido Aurora <time>há 18 min</time></p><p><b>Rafael ·</b> ativou o cupom PRIME10 <time>há 2h</time></p></div></div>
-  <script src="src/models/catalog-model.js"></script>
-  <script src="src/models/order-model.js"></script>
-  <script src="src/services/storage-service.js"></script>
-  <script src="src/services/commerce-service.js"></script>
-  <script src="src/services/instagram-assets.js"></script>
-  <script src="src/views/catalog-view.js"></script>
-  <script src="src/views/admin-view.js"></script>
-  <script src="src/controllers/store-controller.js"></script>
-  <script src="src/controllers/admin-controller.js"></script>
-  <script src="src/controllers/app-controller.js"></script>
-  <script src="src/controllers/bootstrap-controller.js"></script>
+  <script type="module" src="src/models/catalog-model.js"></script>
+  <script type="module" src="src/models/order-model.js"></script>
+  <script type="module" src="src/services/storage-service.js"></script>
+  <script type="module" src="src/services/commerce-service.js"></script>
+  <script type="module" src="src/services/instagram-assets.js"></script>
+  <script type="module" src="src/views/catalog-view.js"></script>
+  <script type="module" src="src/views/admin-view.js"></script>
+  <script type="module" src="src/controllers/store-controller.js"></script>
+  <script type="module" src="src/controllers/admin-controller.js"></script>
+  <script type="module" src="src/controllers/bootstrap-controller.js"></script>
 </body>
 </html>
