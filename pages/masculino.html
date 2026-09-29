@@ -1,1 +1,133 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Masculino | Prime Story</title><link rel="stylesheet" href="../src/views/main.css"></head><body data-category="Masculino"><header class="site-header"><a class="brand" href="../index.html">prime <em>story</em></a><nav class="main-nav"><a href="novidades.html">Novidades</a><a href="feminino.html">Feminino</a><a class="active-nav" href="masculino.html">Masculino</a><a href="acessorios.html">Acessórios</a></nav><div class="header-actions"><div class="search-field"><input id="categorySearch" type="search" placeholder="Buscar peça" aria-label="Buscar peça" /></div><a class="text-button" href="../index.html">Voltar à home</a></div></header><main><section class="category-hero"><p class="eyebrow">Prime Story · masculino</p><h1>Presença sem<br><i>esforço.</i></h1><p>Clássicos repensados para os dias de hoje.</p></section><section class="catalog-section category-page-section"><div class="section-heading"><div><p class="eyebrow">Curadoria Prime</p><h2>Masculino <i>autoral</i></h2></div></div><div class="product-grid" id="categoryProducts"></div></section></main><footer class="site-footer"><div class="footer-brand"><a class="brand" href="../index.html">prime <em>story</em></a><p>Moda para viver sua história.<br>Aracaju, Sergipe.</p></div><div><h4>Explore</h4><a href="novidades.html">Novidades</a><a href="feminino.html">Feminino</a><a href="masculino.html">Masculino</a></div></footer><script src="../src/models/catalog-model.js"></script><script src="../src/services/commerce-service.js"></script><script src="../src/controllers/category-controller.js"></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Coleção Masculina Prime Story · Camisas em algodão egípcio e blazers em linho leve em Aracaju/SE." />
+  <title>Masculino | Prime Story Boutique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/views/main.css" />
+</head>
+<body data-category="Masculino">
+  <div class="announcement">
+    ENTREGA LOCAL EM ARACAJU EM ATÉ 24H <span>·</span> FRETE GRÁTIS A PARTIR DE R$ 199 <span>·</span> ATÉ 3X SEM JUROS
+  </div>
+
+  <header class="site-header">
+    <button class="icon-button mobile-menu" aria-label="Abrir menu">☰</button>
+    <a class="brand" href="../index.html">prime <em>story</em></a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="novidades.html">Novidades</a>
+      <a href="feminino.html">Feminino</a>
+      <a class="active-nav" href="masculino.html">Masculino</a>
+      <a href="acessorios.html">Acessórios</a>
+      <a href="politicas.html">Políticas & Ajuda</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-field">
+        <input id="categorySearch" type="search" placeholder="Buscar nesta categoria..." aria-label="Buscar peça" />
+      </div>
+      <button class="icon-button cart-button" id="cartToggle" aria-label="Abrir carrinho">
+        🛒 <span class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="category-hero">
+      <p class="eyebrow">Prime Story · Coleção Masculina</p>
+      <h1>Presença sem<br><i>esforço.</i></h1>
+      <p>Clássicos repensados com cortes leves e materiais nobres para os dias de hoje.</p>
+    </section>
+
+    <section class="catalog-section category-page-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Curadoria Prime</p>
+          <h2>Masculino <i>autoral</i></h2>
+        </div>
+      </div>
+      <div class="product-grid" id="categoryProducts"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <a class="brand" href="../index.html">prime <em>story</em></a>
+      <p>Moda para viver sua história.<br>Boutique física em Aracaju, Sergipe.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="novidades.html">Novidades</a>
+      <a href="feminino.html">Feminino</a>
+      <a href="masculino.html">Masculino</a>
+      <a href="acessorios.html">Acessórios</a>
+    </div>
+    <div>
+      <h4>Atendimento</h4>
+      <a href="politicas.html#trocas">Trocas e Devoluções</a>
+      <a href="politicas.html#envio">Envios e Frete</a>
+      <a href="politicas.html#privacidade">Privacidade (LGPD)</a>
+    </div>
+    <div>
+      <h4>Boutique Prime</h4>
+      <p class="footer-note">Av. Hermes Fontes, 1200 · Jardins · Aracaju/SE</p>
+      <p class="footer-note">WhatsApp: (79) 99999-9999</p>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Prime Story. CNPJ: 45.182.903/0001-44. Pagamentos via Stripe.
+      <span>Feito em Aracaju com intenção.</span>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Drawer do Carrinho -->
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Sacola de Compras">
+    <div class="drawer-header">
+      <div>
+        <p class="eyebrow">Sua seleção</p>
+        <h2>Minha sacola <span class="cart-count">0</span></h2>
+      </div>
+      <button class="close-button" id="closeCart" aria-label="Fechar sacola">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="coupon-row">
+        <input id="couponInput" placeholder="Cupom de desconto" aria-label="Cupom de desconto">
+        <button type="button" id="couponButton">Aplicar</button>
+      </div>
+      <p class="coupon-feedback" id="couponFeedback"></p>
+      <div class="total-line">
+        <span>Total com Frete</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <p class="shipping-note">Retirada grátis em Aracaju · Frete Grátis Brasil a partir de R$ 199</p>
+      <button class="button button-dark full" id="checkoutButton">
+        Pagar com Stripe (Cartão ou Pix) <span>→</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Modal de Produto -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true">
+    <button class="close-button modal-close" aria-label="Fechar modal">×</button>
+    <div id="productDetail"></div>
+  </div>
+
+  <div class="modal checkout-modal" id="checkoutModal">
+    <button class="close-button modal-close"></button>
+    <div id="checkoutBody"></div>
+  </div>
+
+  <script src="../src/models/catalog-model.js"></script>
+  <script src="../src/services/storage-service.js"></script>
+  <script src="../src/services/commerce-service.js"></script>
+  <script src="../src/views/catalog-view.js"></script>
+  <script src="../src/controllers/store-controller.js"></script>
+  <script src="../src/controllers/category-controller.js"></script>
+  <script src="../src/controllers/bootstrap-controller.js"></script>
+</body>
+</html>

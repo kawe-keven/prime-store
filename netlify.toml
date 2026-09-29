@@ -1,0 +1,44 @@
+# ==============================================================================
+# NETLIFY DEPLOY & SERVERLESS CONFIGURATION - PRIME STORY
+# ==============================================================================
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Redirecionamento amigável das rotas de API para as Serverless Functions
+[[redirects]]
+  from = "/api/create-checkout-session"
+  to = "/.netlify/functions/create-checkout-session"
+  status = 200
+
+[[redirects]]
+  from = "/api/stripe-webhook"
+  to = "/.netlify/functions/stripe-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders"
+  to = "/.netlify/functions/orders"
+  status = 200
+
+# Headers HTTP de Segurança e Otimização para Produção Comercial
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+[[headers]]
+  for = "/src/views/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/public/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

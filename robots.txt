@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /pages/sucesso.html
+Disallow: /pages/cancelado.html
+
+Sitemap: https://primestory.com.br/sitemap.xml

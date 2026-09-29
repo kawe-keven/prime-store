@@ -3,35 +3,44 @@ window.addEventListener('DOMContentLoaded', () => {
   const category = document.body.dataset.category;
   const catalog = window.PrimeModels?.catalog;
   const commerce = window.PrimeServices?.commerce;
+  const views = window.PrimeViews?.catalog;
   const searchInput = document.querySelector('#categorySearch');
+  
   if (!grid || !catalog || !commerce) return;
 
   const renderProducts = () => {
     const query = (searchInput?.value || '').trim().toLowerCase();
-    const products = catalog.products.filter(product => category === 'Novidades'
-      ? product.tag === 'novo'
-      : product.category === category);
+    const products = catalog.getByCategory(category);
+    const favorites = window.PrimeControllers?.store?.favorites || [];
 
-    const filteredProducts = query
-      ? products.filter(product => `${product.name} ${product.category}`.toLowerCase().includes(query))
+    const filtered = query
+      ? products.filter(p => `${p.name} ${p.category} ${p.description || ''}`.toLowerCase().includes(query))
       : products;
 
-    grid.innerHTML = filteredProducts.length
-      ? filteredProducts.map(product => `
-          <article class="product-card category-product-card">
-            <div class="product-image">
-              <img src="${product.image || ''}" alt="${product.name}" loading="lazy">
-              ${product.tag ? `<span class="product-tag">${product.tag}</span>` : ''}
-            </div>
-            <div class="product-info">
-              <div><div class="product-name">${product.name}</div><div class="product-category">${product.category}</div></div>
-              <div class="product-price">${commerce.formatCurrency(product.price)}</div>
-            </div>
-          </article>
-        `).join('')
-      : `<div class="empty-state">Nenhuma peça encontrada para sua busca.</div>`;
+    if (views) {
+      grid.innerHTML = filtered.length
+        ? filtered.map(p => views.productCard(p, commerce.formatCurrency, favorites.includes(p.id))).join('')
+        : `<div class="empty-state" style="grid-column: 1 / -1; padding: 40px;">Nenhuma peça encontrada para sua busca nesta categoria.</div>`;
+    }
   };
+
+  grid.addEventListener('click', e => {
+    const heartBtn = e.target.closest('.product-heart');
+    if (heartBtn) {
+      e.stopPropagation();
+      const id = Number(heartBtn.dataset.id);
+      window.PrimeControllers?.store?.toggleFavorite(id);
+      return;
+    }
+
+    const card = e.target.closest('.product-card');
+    if (card) {
+      const id = Number(card.dataset.id);
+      window.PrimeControllers?.store?.openProductModal(id);
+    }
+  });
 
   searchInput?.addEventListener('input', renderProducts);
   renderProducts();
 });
+
