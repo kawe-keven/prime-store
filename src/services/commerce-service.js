@@ -58,32 +58,42 @@ const commerceService = {
       return {
         valid: false,
         options: [
-          { id: 'local-pickup', name: 'Retirada na loja física (Aracaju/SE)', price: 0, deadline: 'Pronto em até 2h' },
-          { id: 'local-express', name: 'Entrega local em Aracaju', price: isFreeByValue ? 0 : 12, deadline: 'Até 24h úteis' }
+          { id: 'local-pickup', name: 'Retirada na loja física (Centro Histórico, Laranjeiras/SE)', price: 0, deadline: 'Pronto em até 2h' },
+          { id: 'local-express', name: 'Entrega local em Laranjeiras e região', price: isFreeByValue ? 0 : 8, deadline: 'Até 24h úteis' }
         ],
-        selected: isFreeByValue ? { id: 'local-express', price: 0 } : { id: 'local-express', price: 12 },
+        selected: isFreeByValue ? { id: 'local-express', price: 0 } : { id: 'local-express', price: 8 },
         message: 'Digite seu CEP para calcular o frete exato.'
       };
     }
 
     const cepNumber = parseInt(cleanCep, 10);
-    const isAracaju = cepNumber >= 49000000 && cepNumber <= 49099999;
+    const isLaranjeiras = cepNumber >= 49170000 && cepNumber <= 49179999;
+    const isAracajuOuVizinhos = cepNumber >= 49000000 && cepNumber <= 49099999;
     const isSergipe = cepNumber >= 49000000 && cepNumber <= 49999999;
 
     let options = [];
 
-    if (isAracaju) {
+    if (isLaranjeiras) {
       options = [
         {
-          id: 'pickup',
-          name: 'Retirada na Boutique Prime (Jardins, Aracaju)',
+          id: 'pickup-laranjeiras',
+          name: 'Retirada na Boutique Prime (Centro Histórico, Laranjeiras/SE)',
           price: 0,
           deadline: 'Disponível em até 2h após aprovação'
         },
         {
+          id: 'express-laranjeiras',
+          name: 'Entrega Local em Laranjeiras',
+          price: isFreeByValue ? 0 : 8,
+          deadline: 'Entrega no mesmo dia ou até 24h'
+        }
+      ];
+    } else if (isAracajuOuVizinhos) {
+      options = [
+        {
           id: 'express-aju',
-          name: 'Entrega Expressa Aracaju',
-          price: isFreeByValue ? 0 : 12,
+          name: 'Entrega Expressa Grande Aracaju (Origem Laranjeiras)',
+          price: isFreeByValue ? 0 : 14,
           deadline: 'Em até 24h úteis'
         }
       ];

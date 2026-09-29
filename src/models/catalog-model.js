@@ -138,23 +138,119 @@ const products = [
   }
 ];
 
+const defaultProducts = [...products];
+
 const catalogModel = {
   categories: ['Todos', 'Feminino', 'Masculino', 'Acessórios'],
   categoryPalette,
-  products,
+  products: defaultProducts,
+
+  loadFromStorage() {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      try {
+        const stored = localStorage.getItem('prime-catalog-custom');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            this.products = parsed;
+            return;
+          }
+        }
+      } catch (e) {
+        console.warn('Erro ao carregar catálogo customizado:', e);
+      }
+    }
+    this.products = [...defaultProducts];
+  },
+
+  saveToStorage() {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      try {
+        localStorage.setItem('prime-catalog-custom', JSON.stringify(this.products));
+      } catch (e) {
+        console.error('Erro ao salvar catálogo customizado:', e);
+      }
+    }
+  },
+
   getAll() {
+    this.loadFromStorage();
     return this.products;
   },
+
   getById(id) {
+    this.loadFromStorage();
     const numId = Number(id);
     return this.products.find(p => p.id === numId) || null;
   },
+
   getByCategory(category) {
+    this.loadFromStorage();
     if (!category || category === 'Todos') return this.products;
     if (category === 'Novidades') return this.products.filter(p => p.tag === 'novo');
     return this.products.filter(p => p.category.toLowerCase() === category.toLowerCase());
+  },
+
+  updateProduct(id, updatedData) {
+    this.loadFromStorage();
+    const numId = Number(id);
+    const index = this.products.findIndex(p => p.id === numId);
+    if (index === -1) return { success: false, message: 'Produto não encontrado.' };
+
+    this.products[index] = {
+      ...this.products[index],
+      ...updatedData,
+      id: numId,
+      price: Number(updatedData.price) || this.products[index].price,
+      stock: parseInt(updatedData.stock, 10) >= 0 ? parseInt(updatedData.stock, 10) : this.products[index].stock
+    };
+
+    this.saveToStorage();
+    return { success: true, product: this.products[index] };
+  },
+
+  addProduct(newProductData) {
+    this.loadFromStorage();
+    const maxId = this.products.reduce((max, p) => Math.max(max, p.id || 0), 0);
+    const newId = maxId + 1;
+    const product = {
+      id: newId,
+      sku: newProductData.sku || `PS-NOVO-${newId}`,
+      name: newProductData.name || 'Nova Peça Prime',
+      category: newProductData.category || 'Feminino',
+      price: Number(newProductData.price) || 199,
+      stock: parseInt(newProductData.stock, 10) || 5,
+      tag: newProductData.tag || 'novo',
+      sizes: newProductData.sizes || ['P', 'M', 'G'],
+      image: newProductData.image || createProductImage(newProductData.name, newProductData.category),
+      description: newProductData.description || 'Peça autoral desenvolvida com exclusividade na Boutique Prime Story.',
+      composition: newProductData.composition || 'Tecido nobre selecionado'
+    };
+
+    this.products.unshift(product);
+    this.saveToStorage();
+    return { success: true, product };
+  },
+
+  deleteProduct(id) {
+    this.loadFromStorage();
+    const numId = Number(id);
+    this.products = this.products.filter(p => p.id !== numId);
+    this.saveToStorage();
+    return { success: true };
+  },
+
+  resetDefaults() {
+    this.products = [...defaultProducts];
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.removeItem('prime-catalog-custom');
+    }
+    return { success: true, products: this.products };
   }
 };
+
+// Carrega dados iniciais do storage se houver
+catalogModel.loadFromStorage();
 
 if (typeof window !== 'undefined') {
   window.PrimeVisuals = window.PrimeVisuals || {};

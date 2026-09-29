@@ -94,7 +94,7 @@ window.PrimeViews.catalog = {
           </div>
 
           <div class="product-perks">
-            <div><span>⚡</span> Entrega local expressa em Aracaju em até 24h</div>
+            <div><span>⚡</span> Entrega local expressa em Laranjeiras/SE em até 24h</div>
             <div><span>📦</span> Frete Grátis para todo o Brasil acima de R$ 199</div>
             <div><span>↺</span> Primeira troca grátis em até 7 dias úteis</div>
           </div>

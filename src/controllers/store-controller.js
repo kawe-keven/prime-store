@@ -609,7 +609,7 @@ window.PrimeControllers.store = {
             <span>${format(subtotal)}</span>
           </p>
           <p style="display:flex; justify-content:space-between; margin: 6px 0;">
-            <strong>Entrega estimada (Aracaju/SE)</strong>
+            <strong>Entrega estimada (Laranjeiras/SE)</strong>
             <span>${subtotal >= 199 ? '<span style="color:#43733b">Grátis</span>' : 'R$ 12,00'}</span>
           </p>
           <hr style="border: 0; border-top: 1px solid var(--line); margin: 12px 0;">
