@@ -1,0 +1,17 @@
+# Arquivos de ambiente e segredos (NUNCA comitar)
+.env
+.env.local
+.env.*.local
+
+# Dependências
+node_modules/
+package-lock.json
+
+# Builds e logs
+dist/
+.netlify/
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
